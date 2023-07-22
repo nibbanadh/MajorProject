@@ -17,14 +17,14 @@ class CouponController extends Controller
 
     public function coupon()
     {
-        check_access('coupon');
+        
         $coupon = DB::table('coupons')->get();
         return view('admin.coupon.coupon', compact('coupon'));
     }
 
     public function storecoupon(Request $request)
     {
-        check_access('coupon');
+        
         $coupon = new Coupon();
         $coupon->coupon = $request->coupon;
         $coupon->discount = $request->discount;
@@ -38,7 +38,7 @@ class CouponController extends Controller
 
     public function DeleteCoupon($id)
     {
-        check_access('coupon');
+        
         DB::table('coupons')->where('id',$id)->delete();
         $notification=array(
             'message'=>'Coupon Deleted Successfully',
@@ -49,14 +49,14 @@ class CouponController extends Controller
 
     public function EditCoupon($id)
     {
-        check_access('coupon');
+        
         $coupon = DB::table('coupons')->where('id',$id)->first();
         return view('admin.coupon.edit_coupon', compact('coupon'));
     }
 
     public function UpdateCoupon(Request $request, $id)
     {
-        check_access('coupon');
+        
         $coupon = new Coupon();
         $coupon->where('id',$id)->update([
             'coupon' => $request->coupon,
@@ -71,14 +71,12 @@ class CouponController extends Controller
 
     public function Newslater()
     {
-        check_access('other');
         $sub = DB::table('newslaters')->get();
         return view('admin.coupon.newslater',compact('sub'));  
     }
 
     public function DeleteNewslater($id)
     {
-        check_access('other');
         DB::table('newslaters')->where('id', $id)->delete();
         $notification=array(
             'message'=>'Subscriber Deleted Successfully',
@@ -88,14 +86,12 @@ class CouponController extends Controller
     }
 
     public function EmailSubscriber(Request $request){
-        check_access('other');
         $emails= $request->email_id;
 
         return view('admin.coupon.email',compact('emails'));
     }
 
     public function EmailSuccess(Request $request){
-        check_access('other');
         $to= explode(',',$request->email_to);
         $subject= $request->email_subject;
         $body= $request->email_body;

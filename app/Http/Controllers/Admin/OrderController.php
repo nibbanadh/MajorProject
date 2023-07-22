@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Image;
 
+
 class OrderController extends Controller
 {
     public function __construct()
@@ -15,17 +16,16 @@ class OrderController extends Controller
     }
 
     public function NewOrder()
-    {
-        check_access('order');
+    {   
         $heading= "Pending Order Details";
         $order = DB::table('orders')->where('status',0)->get();
 
-        return view('admin.order.pending',compact('order','heading'));
+        return view('admin.order.pending', compact('order','heading'));
     }
 
     public function ViewOrder($id)
     {
-        check_access('order');
+        
         $order = DB::table('orders')
                 ->join('users','orders.user_id','users.id')
                 ->select('orders.*','users.name','users.phone')
@@ -44,7 +44,7 @@ class OrderController extends Controller
 
     public function PaymentAccept($id)
     {
-        check_access('order');
+        
         DB::table('orders')->where('id',$id)->update(['status'=>1]);
         $notification=array(
             'message'=>'Payment Accepted',
@@ -55,7 +55,7 @@ class OrderController extends Controller
 
     public function PaymentCancel($id)
     {
-        check_access('order');
+        
         DB::table('orders')->where('id',$id)->update(['status'=>4]);
         $notification=array(
             'message'=>'Order Cancel',
@@ -66,7 +66,7 @@ class OrderController extends Controller
 
     public function DeliveryProcess($id)
     {
-        check_access('order');
+        
         DB::table('orders')->where('id',$id)->update(['status'=>2]);
         $notification=array(
             'message'=>'Order Process for Delivery',
@@ -77,7 +77,7 @@ class OrderController extends Controller
 
     public function DeliveryDone(Request $request)
     {
-        check_access('order');
+        
         $id = $request->order_id;
         $delivery_by = $request->delivery_by;
 
@@ -106,7 +106,7 @@ class OrderController extends Controller
 
     public function AcceptPayment()
     {
-        check_access('order');
+        
         $heading= "Payment Acceptance Details";
         $order = DB::table('orders')->where('status',1)->get();
 
@@ -115,7 +115,7 @@ class OrderController extends Controller
 
     public function CancelOrder()
     {
-        check_access('order');
+        
         $heading= "Cancelled Order Details";
         $order = DB::table('orders')->where('status',4)->get();
 
@@ -124,7 +124,7 @@ class OrderController extends Controller
 
     public function ProcessOrder()
     {
-        check_access('order');
+        
         $heading= "Delivery Processing Order Details";
         $order = DB::table('orders')->where('status',2)->get();
 
@@ -133,7 +133,7 @@ class OrderController extends Controller
 
     public function SuccessDelivery()
     {
-        check_access('order');
+        
         $heading= "Delivered Order Details";
         $order = DB::table('orders')->where('status',3)->get();
 
@@ -142,14 +142,12 @@ class OrderController extends Controller
 
     public function seo()
     {
-        check_access('other');
         $seo = DB::table('seo')->first();
         return view('admin.coupon.seo',compact('seo'));
     }
 
     public function UpdateSeo(Request $request){
-        check_access('other');
-
+     
         $id = $request->id;
 
         $data = array();
@@ -174,7 +172,7 @@ class OrderController extends Controller
     }
     
     public function InvoiceVerify(Request $request){
-        check_access('order');
+        
         $id= $request->order_id;
         $post_image = $request->file('invoice_verify');
         if ($post_image!=NULL && $id!=NULL){

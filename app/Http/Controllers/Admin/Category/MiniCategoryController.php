@@ -12,10 +12,6 @@ class MiniCategoryController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin');
-        $this->middleware(function ($request, $next) {
-           check_access('category');
-           return $next($request);
-        });
     }
 
     public function minicategories()

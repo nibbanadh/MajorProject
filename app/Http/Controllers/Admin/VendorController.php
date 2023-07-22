@@ -11,10 +11,6 @@ class VendorController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin');
-        $this->middleware(function ($request, $next) {
-           check_access('vendor');
-           return $next($request);
-        });
     }
 
     public function index()

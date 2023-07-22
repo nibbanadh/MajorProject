@@ -15,7 +15,7 @@ class UserRoleController extends Controller
     }
 
     public function UserRole(){
-        check_access('role');
+        
         $user = DB::table('admins')->where('type',2)->get();
         $style= "<style>.access_block{
             display: contents;
@@ -29,12 +29,12 @@ class UserRoleController extends Controller
     }
 
     public function UserCreate(){
-        check_access('role');
+        
         return view('admin.role.create_role');
     }
 
     public function UserStore(Request $request){
-        check_access('role');
+        
         $data= array();
         $data['name']= $request->name;
         $data['phone']= $request->phone;
@@ -67,14 +67,14 @@ class UserRoleController extends Controller
     }
 
     public function UserEdit($id){
-        check_access('role');
+        
         $user = DB::table('admins')->where('id',$id)->first();
 
         return view('admin.role.edit_role',compact('user'));
     }
 
     public function UserDelete($id){
-        check_access('role');
+        
         DB::table('admins')->where('id',$id)->delete();
 
 
@@ -87,7 +87,7 @@ class UserRoleController extends Controller
     }
 
     public function UserUpdate(Request $request){
-        check_access('role');
+        
         $id= $request->id;
         $data= array();
         $data['name']= $request->name;
@@ -120,7 +120,6 @@ class UserRoleController extends Controller
 
     public function ProductStock()
     {
-        check_access('stock');
         $product = DB::table('products')
                     ->join('categories','products.category_id','categories.id')
                     ->join('subcategories','products.subcategory_id','subcategories.id')
@@ -135,7 +134,6 @@ class UserRoleController extends Controller
 
     public function EmptyStock()
     {
-        check_access('stock');
         $product = DB::table('products')
                     ->join('categories','products.category_id','categories.id')
                     ->join('subcategories','products.subcategory_id','subcategories.id')
@@ -150,7 +148,6 @@ class UserRoleController extends Controller
 
     public function EmptyStockUpdate(Request $request)
     {
-        check_access('stock');
         $product_id = $request->product_id;
         $qty = $request->product_quantity;
 

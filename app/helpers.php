@@ -5,13 +5,14 @@ use phpDocumentor\Reflection\Types\Null_;
 
 if(!function_exists('check_access')) {
     function check_access($menu){
-        if(!empty($menu)){
-            $menu_check= Auth::user()->$menu;
-            if($menu_check!="1"){
-                return abort(404);             
-            }
+        // if(!empty($menu)){
+        //     $menu_check= Auth::user()->$menu;
+        //     if($menu_check!="1"){
+        //         return abort(404);             
+        //     }
 
-        }
+        // }
+        return true;
     }
 }
 

@@ -12,10 +12,6 @@ class ProductController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin');
-        $this->middleware(function ($request, $next){
-            check_access('product');
-            return $next($request);
-        });
     }
 
 

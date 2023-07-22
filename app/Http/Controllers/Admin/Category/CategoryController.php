@@ -12,16 +12,12 @@ class CategoryController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin');
-        $this->middleware(function ($request, $next) {
-           check_access('category');
-           return $next($request);
-        });
     }
 
     public function category()
     {
         $category = Category::all();
-        return view('admin.category.category',compact('category'));
+        return view('admin.category.category', compact('category'));
     }
 
     public function storecategory(Request $request)

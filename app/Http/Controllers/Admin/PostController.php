@@ -16,14 +16,14 @@ class PostController extends Controller
 
     public function BlogCatList()
     {
-        check_access('blog');
+        
         $blogcat = DB::table('post_category')->get();
         return view('admin.blog.category.index', compact('blogcat'));
     }
 
     public function BlogCatStore(Request $request)
     {
-        check_access('blog');
+        
         $validate = $request->validate([
             'category_name_en' => 'required|max:255',
             'category_name_nep' => 'required|max:255'
@@ -45,7 +45,7 @@ class PostController extends Controller
 
     public function DeleteBlogCat($id)
     {
-        check_access('blog');
+        
         DB::table('post_category')->where('id', $id)->delete();
         $notification=array(
             'message'=>'Blog Category Deleted Successfully',
@@ -56,14 +56,14 @@ class PostController extends Controller
 
     public function EditBlogCat($id)
     {
-        check_access('blog');
+        
         $blogcatedit = DB::table('post_category')->where('id',$id)->first();
         return view('admin.blog.category.edit', compact('blogcatedit'));
     }
 
     public function UpdateBlogCat(Request $request, $id)
     {
-        check_access('blog');
+        
         $validate = $request->validate([
             'category_name_en' => 'required|max:255',
             'category_name_nep' => 'required|max:255'
@@ -84,14 +84,14 @@ class PostController extends Controller
 
     public function Create()
     {
-        check_access('blog');
+        
         $blogcategory = DB::table('post_category')->get();
         return view('admin.blog.create',compact('blogcategory'));
     }
 
     public function Store(Request $request)
     {
-        check_access('blog');
+        
         $validate = $request->validate([
             'post_title_en' => 'required',
             'post_title_nep' => 'required',
@@ -134,7 +134,7 @@ class PostController extends Controller
 
     public function index()
     {
-        check_access('blog');
+        
         $post = DB::table('posts')
                 ->join('post_category','posts.category_id','post_category.id')
                 ->select('posts.*','post_category.category_name_en','post_category.category_name_nep')
@@ -144,7 +144,7 @@ class PostController extends Controller
 
     public function DeletePost($id)
     {
-        check_access('blog');
+        
         $post = DB::table('posts')->where('id',$id)->first();
         $image = $post->post_image;
         if(!empty($image)){
@@ -160,7 +160,7 @@ class PostController extends Controller
 
     public function EditPost($id)
     {
-        check_access('blog');
+        
         $post = DB::table('posts')->where('id',$id)->first();
         $blogcategory = DB::table('post_category')->get();
         return view('admin.blog.edit', compact('post','blogcategory'));
@@ -168,7 +168,7 @@ class PostController extends Controller
 
     public function UpdatePost(Request $request, $id)
     {
-        check_access('blog');
+        
         $validate = $request->validate([
             'post_title_en' => 'required',
             'post_title_nep' => 'required',
@@ -214,14 +214,12 @@ class PostController extends Controller
     }
 
     public function AllMessage(){
-        check_access('contact');
         $message = DB::table('contact')->get();
         return view('admin.contact.all_message',compact('message'));
     }
 
     public function ContactMessage($id)
     {
-        check_access('contact');
         $message = DB::table('contact')->where('id',$id)->first();
         return view('admin.contact.view_message',compact('message'));
     }
