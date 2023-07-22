@@ -1,0 +1,385 @@
+/* Load Settings */
+
+.no-scroll-y {
+    overflow-y: hidden;
+}
+
+#preloader-section {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Preloader */
+
+.ctn-preloader {
+    -webkit-box-align: center;
+    align-items: center;
+    /* Show or Hide cursor when hover of Preloader*/
+    cursor: none;
+    display: -webkit-box;
+    display: flex;
+    height: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.ctn-preloader .animation-preloader {
+    position: absolute;
+    z-index: 100;
+}
+
+
+/* Text Loading */
+
+.ctn-preloader .animation-preloader .txt-loading {
+    font: 1.5em 'Rubik', sans-serif;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:before {
+    -webkit-animation: letters-loading 4s infinite;
+    animation: letters-loading 4s infinite;
+    color: #000000;
+    content: attr(data-text-preloader);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading {
+    color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-transform: uppercase;
+}
+
+
+/* Letters Animation */
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
+    -webkit-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
+    -webkit-animation-delay: 1.4s;
+    animation-delay: 1.4s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(9):before {
+    -webkit-animation-delay: 1.6s;
+    animation-delay: 1.6s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(10):before {
+    -webkit-animation-delay: 1.8s;
+    animation-delay: 1.8s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(11):before {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(12):before {
+    -webkit-animation-delay: 2.2s;
+    animation-delay: 2.2s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(13):before {
+    -webkit-animation-delay: 2.4s;
+    animation-delay: 2.4s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(14):before {
+    -webkit-animation-delay: 2.6s;
+    animation-delay: 2.6s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(15):before {
+    -webkit-animation-delay: 2.8s;
+    animation-delay: 2.8s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(16):before {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+
+
+/* Loader section Settings */
+
+.loader-section {
+    background-color: #ffffff;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+/* Fade effect in loading animation */
+
+.loaded .animation-preloader {
+    opacity: 0;
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+}
+
+
+/* Animation of the letters loading from the preloader */
+
+@-webkit-keyframes letters-loading {
+    0%,
+    75%,
+    100% {
+        opacity: 0;
+        -webkit-transform: rotateY(-90deg);
+        transform: rotateY(-90deg);
+    }
+    25%,
+    50% {
+        opacity: 1;
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes letters-loading {
+    0%,
+    75%,
+    100% {
+        opacity: 0;
+        -webkit-transform: rotateY(-90deg);
+        transform: rotateY(-90deg);
+    }
+    25%,
+    50% {
+        opacity: 1;
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+}
+
+
+/* Backward laptop size (laptop, tablet, cell phone) */
+
+@media screen and (max-width: 767px) {
+    /* Text Loading */
+    .ctn-preloader .animation-preloader .txt-loading {
+        font: 1.5em 'Rubik', sans-serif;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    /* Text Loading */
+    .ctn-preloader .animation-preloader .txt-loading {
+        font: 1.5em 'Rubik', sans-serif;
+    }
+}
+
+
+/* Copy-right by ARiyou2000 in May2020*/
+
+
+/*css with 2 animation ---> shimmer, shadow   */
+
+.preloader {
+    width: 100%;
+    padding: 0px;
+    margin: 20px 0 10px 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_section {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    animation: 1s ease-in-out alternate infinite shadows;
+}
+
+.site_logo {
+    width: 90px;
+}
+
+.site_logo,
+txt-loading {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+    animation-duration: 0.9s;
+}
+
+.img_filter {
+    width: 120px;
+    height: 120px;
+    opacity: 0.3;
+    position: absolute;
+    -webkit-animation-duration: 0.9s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeHolderShimmer;
+    -webkit-animation-timing-function: linear;
+    background: #f6f7f9;
+    background-image: linear-gradient(to right, #f6f7f9 0%, #e9ebee 20%, #f6f7f9 40%, #f6f7f9 100%);
+    background-repeat: no-repeat;
+}
+
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+@keyframes shadows {
+    0% {
+        box-shadow: none
+    }
+    100% {
+        box-shadow: 9px 16px 8px rgb(227, 227, 227);
+    }
+}
+
+
+/* under construction css */
+
+:root {
+    --highlightColor: #ff9f1c;
+    --textColor: #070600;
+    --backgroundColor: #f7f7ff;
+}
+
+.maintenance-wrap {
+    max-width: 500px;
+    margin: auto;
+}
+
+.maintenance-anim {
+    width: 100%;
+    position: relative;
+    margin-top: 0;
+    margin-right: 20px;
+    opacity: 0.5;
+}
+
+.maintenance-anim img {
+    width: 90px;
+    display: block;
+    margin: 0 auto;
+}
+
+@keyframes maintenance {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes maintenance {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.maintenance-content h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    color: var(--textColor);
+    margin-bottom: 0;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.maintenance-content p {
+    color: var(--highlightColor);
+}
+
+.maintenance-content footer {
+    font-size: 1rem;
+    color: var(--textColor);
+    text-align: center;
+    opacity: 0.8;
+}
+
+.maintenance-content footer a {
+    background: linear-gradient( to bottom, var(--highlightColor) 0%, var(--highlightColor) 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 1px 1px;
+    color: rgba(7, 6, 0, 0.7);
+    text-decoration: none;
+}
